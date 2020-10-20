@@ -41,7 +41,11 @@ namespace Logging.BL
                     File.Copy(FilePath, $@"{DestFolder}\{dateString}_{Path.GetFileName(FilePath)}");
                     Thread.Sleep(Interval * 1000);
                 }
-                catch(IOException) { }
+                catch(Exception) 
+                {
+                    // TODO: Добавить вывод ошибки (например в случае удаления файла во время работы программы).
+                    break;
+                }
             }
         }
     }
